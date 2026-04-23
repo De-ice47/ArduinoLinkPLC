@@ -1,7 +1,5 @@
 #include "ArduinoLinkPLC.h"
 // Main Settings for Wifi
-// 192,168,137,1
-// 137, 104, 157, 147
 IPAddress masterComputerIP(192,168,137,1);
 const char* masterComputerSSID = "TOPQUARK 4077";
 const char* masterComputerSSIDPassword = "5E1259o2";

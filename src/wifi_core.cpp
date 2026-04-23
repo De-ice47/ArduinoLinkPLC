@@ -22,17 +22,12 @@ void setup_wifi() {
   Serial.print(", through port: ");
   Serial.println(masterComputerPort);
   while (WiFi.status() == WL_IDLE_STATUS) {
+    wifi_checkStatus();
     delay(250);
     digitalWrite(LED_BUILTIN, HIGH);
     Serial.print(".");
     delay(250);
     digitalWrite(LED_BUILTIN, LOW);
-    wifi_checkStatus();
-    connectionAttempts++;
-    if(connectionAttempts > 60){
-      Serial.println("Connection Timeout");
-      return;
-    }
   }
   
   if(udp.begin(masterComputerPort) == 1) {

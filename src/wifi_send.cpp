@@ -1,8 +1,11 @@
 #include "ArduinoLinkPLC.h"
-
-void send_packet(String msg)
+#include "ArduinoLinkPLC_Internal.h"
+namespace ArduinoLinkPLC
 {
-    udp.beginPacket(masterComputerIP, masterComputerPort);
-    udp.print(msg);
-    udp.endPacket();
+    void send_packet(String msg)
+    {
+        udp.beginPacket(masterComputerIP, masterComputerPort);
+        udp.print(msg);
+        udp.endPacket();
+    }
 }

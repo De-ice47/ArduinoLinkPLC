@@ -12,7 +12,7 @@ namespace ArduinoLinkPLC
     }
 
     // Trigger the event
-    void EventString::invoke(const String &msg)
+    void EventString::invoke(const char* &msg)
     {
         for (int i = 0; i < count; i++)
         {

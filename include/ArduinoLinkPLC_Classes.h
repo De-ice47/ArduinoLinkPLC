@@ -1,8 +1,8 @@
-#include <Arduino.h>
+#include "ArduinoLinkPLC_Settings.h"
 namespace ArduinoLinkPLC
 {
     // Events
-    typedef void (*EventCallback)(const String &msg);
+    typedef void (*EventCallback)(const char* &msg);
 #define MAX_EVENT_LISTENERS 4
     // Classes
     class EventString
@@ -13,7 +13,24 @@ namespace ArduinoLinkPLC
 
     public:
         void subscribe(EventCallback cb);
-        void invoke(const String &msg);
+        void invoke(const char *&msg);
         void clear_all_listeners();
+    };
+    class Packet
+    {
+    public:
+        const char *SenderID;
+        const char *ReceiverID;
+        long TimeStamp;
+        const char *Type;
+        const char *DataJSON;
+        Packet(char *ReceiverID, char *type, char *dataJSON)
+        {
+            SenderID = deviceSenderID;
+            ReceiverID = ReceiverID;
+            TimeStamp = 0;
+            Type = type;
+            DataJSON = dataJSON;
+        };
     };
 }

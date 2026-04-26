@@ -1,9 +1,4 @@
-#pragma once
-#include <Arduino.h>
-#include <WiFi.h>
-#include <WiFiUdp.h>
-#include <functional>
-#include <vector>
+
 #include "ArduinoLinkPLC_Classes.h"
 namespace ArduinoLinkPLC
 {
@@ -21,4 +16,7 @@ namespace ArduinoLinkPLC
     void send_packet(String msg);
     // Receiving
     extern ArduinoLinkPLC::EventString onPacketReceived;
+    //
+    Packet constructPacket(char* dataJSON,char* ReceiverID);
+    Packet deconstructPacket(const char* packet);
 }

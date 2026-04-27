@@ -1,4 +1,4 @@
-
+#pragma once
 #include "ArduinoLinkPLC_Classes.h"
 namespace ArduinoLinkPLC
 {
@@ -13,10 +13,10 @@ namespace ArduinoLinkPLC
     void loop_library();
     
     // Sending
-    void send_packet(String msg);
+    void send_packet(char* type, char* dataJSON);
     // Receiving
     extern ArduinoLinkPLC::EventString onPacketReceived;
     //
-    Packet constructPacket(char* dataJSON,char* ReceiverID);
+    Packet constructPacket(char* dataJSON,const char* type,const char* ReceiverID);
     Packet deconstructPacket(const char* packet);
 }

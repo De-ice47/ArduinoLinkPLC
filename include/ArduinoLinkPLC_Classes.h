@@ -1,3 +1,4 @@
+#pragma once
 #include "ArduinoLinkPLC_Settings.h"
 namespace ArduinoLinkPLC
 {
@@ -24,13 +25,21 @@ namespace ArduinoLinkPLC
         long TimeStamp;
         const char *Type;
         const char *DataJSON;
-        Packet(char *ReceiverID, char *type, char *dataJSON)
+        Packet(const char *ReceiverID, const char *type, char *dataJSON)
         {
             SenderID = deviceSenderID;
             ReceiverID = ReceiverID;
             TimeStamp = 0;
             Type = type;
             DataJSON = dataJSON;
+        };
+        Packet()
+        {
+            SenderID = "";
+            ReceiverID = "";
+            TimeStamp = 0;
+            Type = "";
+            DataJSON = "";
         };
     };
 }

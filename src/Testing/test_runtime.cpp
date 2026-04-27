@@ -1,7 +1,7 @@
 #include "ArduinoLinkPLC.h";
 
-void displayPacket(const String &msg){
-    Serial.println("[Wifi] (Received) " + msg);
+void displayPacket(const char* &msg){
+    Serial.println("[Wifi] (Received) " + String(msg));
 }
 
 void setup(){

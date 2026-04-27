@@ -2,30 +2,33 @@
 
 namespace ArduinoLinkPLC
 {
-    Packet constructPacket(char* dataJSON, const char* ReceiverID)
+    Packet constructPacket(char *dataJSON, const char *type, const char *ReceiverID)
     {
-        Packet packet(ReceiverID);
+        Packet packet(ReceiverID, type, dataJSON);
         packet.DataJSON = dataJSON;
         return packet;
     }
-    Packet deconstructPacket(const char* packet)
+    Packet deconstructPacket(const char *packet)
     {
+        Packet result("","","");
+
         StaticJsonDocument<256> doc;
-
-        DeserializationError error = deserializeJson(doc,packet);
-
+        DeserializationError error = deserializeJson(doc, packet);
         if (error)
-            return;
-
-        // Access field data from packet
-        const char* senderID = doc["SendID"];
-        const char* receiverID = doc["ReceiveID"];
-        const char* type = doc["type"];
-        const long timeStamp = doc["timeStamp"];
-
-        if (type == "PING")
         {
-            Serial.println("[Wifi] (PING) Sender: " + String(senderID) + ", Receiver: " + String(receiverID));
+            return result;
         }
+        // Access field data from packet
+
+        result.SenderID = doc["SendID"];
+        result.ReceiverID = doc["ReceiveID"];
+        result.Type = doc["type"];
+        result.TimeStamp = doc["timeStamp"];
+
+        if (strcmp(result.Type,"PING") == 0)
+        {
+            Serial.println("[Wifi] (PING) Sender: " + String(result.SenderID) + ", Receiver: " + String(result.ReceiverID));
+        }
+        return result;
     }
 }

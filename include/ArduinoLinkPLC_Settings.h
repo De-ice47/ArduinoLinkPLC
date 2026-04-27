@@ -1,6 +1,11 @@
+#pragma once
 #include "ArduinoLinkPLC_!SOURCE.h"
 namespace ArduinoLinkPLC
 {
     // Device Settings
-    extern const char *deviceSenderID = "ArdUnoR4";
+    extern const char *deviceSenderID;
+    extern IPAddress masterComputerIP;        // Input the master device
+    extern const char *masterComputerSSID;    // Master device network name
+    extern const char *masterComputerSSIDPassword; // Master device network password
+    extern const int masterComputerPort;                 // Master device port
 }

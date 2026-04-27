@@ -1,3 +1,4 @@
+#pragma once
 #include "ArduinoLinkPLC.h"
 
 namespace ArduinoLinkPLC

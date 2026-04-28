@@ -8,6 +8,4 @@ namespace ArduinoLinkPLC
     const char *masterComputerSSID = "";    // Master device network name
     const char *masterComputerSSIDPassword = ""; // Master device network password
     const int masterComputerPort = 00000;                 // Master device port
-
-    
 }

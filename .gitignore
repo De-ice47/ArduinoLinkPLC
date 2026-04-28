@@ -4,3 +4,4 @@
 .vscode/launch.json
 .vscode/ipch
 src/test_runtime.cpp
+src/Core/Settings.cpp

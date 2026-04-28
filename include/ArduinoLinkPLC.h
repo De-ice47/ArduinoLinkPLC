@@ -5,7 +5,7 @@
 namespace ArduinoLinkPLC
 {
     // Global vars
-    extern IPAddress masterComputerIP;
+    extern IPAddress gateway;
     extern const char *masterComputerSSID;
     extern const char *masterComputerSSIDPassword;
     extern const int masterComputerPort;

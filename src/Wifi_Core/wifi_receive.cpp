@@ -15,12 +15,26 @@ namespace ArduinoLinkPLC
         incomingPacket[len] = 0;
       }
 
-      const char* msg = incomingPacket;
+      const char *msg = incomingPacket;
       onPacketReceived.invoke(msg);
-    
+
       Packet packet = ArduinoLinkPLC::deconstructPacket(msg);
-      ArduinoLinkPLC::React(packet);
-      
+      bool globalBroadcast = strcmp(packet.ReceiverID, "") == 0;
+      if (globalBroadcast) // This broadcast is a global one for this device
+      {
+        Serial.println("[Wifi-R] ("+String(packet.SenderID)+") => (Global Broadcast) <"+ String(packet.Type) +"> : " + String(packet.DataJSON));
+        ArduinoLinkPLC::React(packet);
+      }
+      else
+      {
+        if (strcmp(packet.ReceiverID, DeviceID) != 0)
+          return; // This broadcast is not for this device
+        else
+        {
+          Serial.println("[Wifi-R] ("+String(packet.SenderID)+") => (" + String(packet.ReceiverID) + ") ("+ String(packet.Type) +")" + String(packet.DataJSON));
+          ArduinoLinkPLC::React(packet);
+        }
+      }
     }
   }
 }

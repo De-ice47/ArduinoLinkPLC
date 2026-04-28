@@ -6,6 +6,7 @@ namespace ArduinoLinkPLC
     {
         Packet packet(type, dataJSON, ReceiverID);
         packet.DataJSON = dataJSON;
+        packet.ReceiverID = ReceiverID;
         return packet;
     }
     Packet deconstructPacket(const char *packet)
@@ -24,11 +25,8 @@ namespace ArduinoLinkPLC
         result.ReceiverID = doc["ReceiveID"];
         result.Type = doc["type"];
         result.TimeStamp = doc["timeStamp"];
+        result.DataJSON = doc["data"];
 
-        if (strcmp(result.Type, "PING") == 0)
-        {
-            Serial.println("[Wifi] (PING) Sender: " + String(result.SenderID) + ", Receiver: " + String(result.ReceiverID));
-        }
         return result;
     }
 }

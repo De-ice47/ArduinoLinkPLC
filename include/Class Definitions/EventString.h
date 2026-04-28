@@ -27,7 +27,7 @@ namespace ArduinoLinkPLC
         const char *DataJSON;
         Packet(const char *type,const char *dataJSON, const char *ReceiverID)
         {
-            SenderID = deviceSenderID;
+            SenderID = DeviceID;
             ReceiverID = ReceiverID;
             TimeStamp = 0;
             Type = type;

@@ -1,4 +1,3 @@
-#include "ArduinoLinkPLC.h"
 #include "ArduinoLinkPLC_Internal.h"
 namespace ArduinoLinkPLC
 {
@@ -10,9 +9,10 @@ namespace ArduinoLinkPLC
   void setup_wifi()
   {
     digitalWrite(LED_BUILTIN, LOW);
+    WiFi.config(localIP, gateway, subnet);
     WiFi.begin(masterComputerSSID, masterComputerSSIDPassword);
     Serial.print("Connecting to: ");
-    Serial.print(masterComputerIP);
+    Serial.print(gateway);
     Serial.print(", on network: ");
     Serial.print(masterComputerSSID);
     Serial.print(", through port: ");
@@ -37,5 +37,9 @@ namespace ArduinoLinkPLC
       Serial.println("Socket Error");
       digitalWrite(LED_BUILTIN, LOW);
     }
+    while (WiFi.status() != WL_CONNECTED)
+      delay(250);
+    Serial.print("Local IP: ");
+    Serial.println(WiFi.localIP());
   }
 }

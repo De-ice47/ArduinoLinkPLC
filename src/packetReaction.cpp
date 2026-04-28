@@ -13,8 +13,7 @@ namespace ArduinoLinkPLC
   }
   void Ping()
   {
-    String ipStr = localIP.toString();
-    const char *dataJSON = ipStr.c_str();
+    const char *dataJSON = localIP.toString().c_str();
     ArduinoLinkPLC::send_packet("PING", dataJSON);
   }
 }

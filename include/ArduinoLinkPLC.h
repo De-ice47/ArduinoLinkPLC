@@ -4,12 +4,6 @@
 #include "Core/ArduinoLinkPLC_Scripts.h"
 namespace ArduinoLinkPLC
 {
-    // Global vars
-    extern IPAddress gateway;
-    extern const char *masterComputerSSID;
-    extern const char *masterComputerSSIDPassword;
-    extern const int masterComputerPort;
-
     // Master loop and setup functions
     void setup_library();
     void loop_library();

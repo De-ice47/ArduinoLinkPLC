@@ -1,0 +1,36 @@
+{
+  "name": "ArduinoLinkPLC",
+  "version": "1.0.0",
+  "description": "Lightweight WiFi communication bridge for Arduino devices to interface with Unity applications.",
+  "keywords": [
+    "wifi",
+    "network",
+    "unity",
+    "udp",
+    "communication"
+  ],
+  "authors": [
+    {
+      "name": "De_ice47",
+      "email": "de_ice47.cross316@passinbox.com",
+      "url": "https://github.com/De-ice47",
+      "maintainer": true
+    }
+  ],
+  "license": "MIT-0",
+  "homepage": "https://github.com/De-ice47/ArduinoLinkPLC",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/De-ice47/ArduinoLinkPLC"
+  },
+  "frameworks": "arduino",
+  "platforms": [
+    "atmelavr",
+    "espressif8266",
+    "espressif32"
+  ],
+  "build": {
+    "includeDir": "include",
+    "srcDir": "src"
+  }
+}

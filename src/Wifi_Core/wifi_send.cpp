@@ -16,6 +16,6 @@ namespace ArduinoLinkPLC
         udp.beginPacket(gateway, masterComputerPort);
         udp.print(output);
         udp.endPacket();
-        Serial.println("[Wifi-S] (" + String(packet.SenderID) + ") => (" + String(packet.ReceiverID) + ") <" + String(packet.Type) + "> :" + String(packet.DataJSON));
+        if(showSerialOutput) Serial.println("[Wifi-S] (" + String(packet.SenderID) + ") => (" + String(packet.ReceiverID) + ") <" + String(packet.Type) + "> :" + String(packet.DataJSON));
     }
 }

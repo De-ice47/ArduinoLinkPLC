@@ -1,5 +1,5 @@
 #pragma once
-#include "ArduinoLinkPLC_!SOURCE.h"
+#include "Core/ArduinoLinkPLC_SOURCE.h"
 namespace ArduinoLinkPLC
 {
     // Device Settings

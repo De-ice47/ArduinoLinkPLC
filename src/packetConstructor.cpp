@@ -1,16 +1,16 @@
-#include "ArduinoLinkPLC.h"
+#include "ArduinoLinkPLC_Internal.h"
 
 namespace ArduinoLinkPLC
 {
-    Packet constructPacket(char *dataJSON, const char *type, const char *ReceiverID)
+    Packet constructPacket(const char *type, const char *dataJSON, const char *ReceiverID)
     {
-        Packet packet(ReceiverID, type, dataJSON);
+        Packet packet(type, dataJSON, ReceiverID);
         packet.DataJSON = dataJSON;
         return packet;
     }
     Packet deconstructPacket(const char *packet)
     {
-        Packet result("","","");
+        Packet result("", "", "");
 
         StaticJsonDocument<256> doc;
         DeserializationError error = deserializeJson(doc, packet);
@@ -25,7 +25,7 @@ namespace ArduinoLinkPLC
         result.Type = doc["type"];
         result.TimeStamp = doc["timeStamp"];
 
-        if (strcmp(result.Type,"PING") == 0)
+        if (strcmp(result.Type, "PING") == 0)
         {
             Serial.println("[Wifi] (PING) Sender: " + String(result.SenderID) + ", Receiver: " + String(result.ReceiverID));
         }

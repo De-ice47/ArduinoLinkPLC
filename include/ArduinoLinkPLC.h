@@ -1,5 +1,7 @@
 #pragma once
-#include "ArduinoLinkPLC_Classes.h"
+#include "Core/ArduinoLinkPLC_Settings.h"
+#include "Core/ArduinoLinkPLC_Classes.h"
+#include "Core/ArduinoLinkPLC_Scripts.h"
 namespace ArduinoLinkPLC
 {
     // Global vars
@@ -11,12 +13,12 @@ namespace ArduinoLinkPLC
     // Master loop and setup functions
     void setup_library();
     void loop_library();
-    
+
     // Sending
-    void send_packet(char* type, char* dataJSON);
+    void send_packet(const char *, const char *);
     // Receiving
     extern ArduinoLinkPLC::EventString onPacketReceived;
     //
-    Packet constructPacket(char* dataJSON,const char* type,const char* ReceiverID);
-    Packet deconstructPacket(const char* packet);
+    Packet constructPacket(const char *, const char *, const char *);
+    Packet deconstructPacket(const char *);
 }

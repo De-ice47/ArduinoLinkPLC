@@ -1,4 +1,4 @@
-#include "ArduinoLinkPLC_Settings.h"
+#include "Core/ArduinoLinkPLC_Settings.h"
 
 namespace ArduinoLinkPLC
 {

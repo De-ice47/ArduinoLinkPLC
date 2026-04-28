@@ -1,4 +1,3 @@
-#include "ArduinoLinkPLC.h"
 #include "ArduinoLinkPLC_Internal.h"
 namespace ArduinoLinkPLC
 {
@@ -18,15 +17,10 @@ namespace ArduinoLinkPLC
 
       const char* msg = incomingPacket;
       onPacketReceived.invoke(msg);
+    
       Packet packet = ArduinoLinkPLC::deconstructPacket(msg);
-      // Reaction code (Send to its own file)
-      char* dataJSON;
-      // Packet Processing
-      if(strcmp(packet.Type,"PING") == 0){
-        const char* dataJSON = "Here I am";
-      }
-
-      send_packet("PING",dataJSON);
+      ArduinoLinkPLC::React(packet);
+      
     }
   }
 }

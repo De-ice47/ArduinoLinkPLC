@@ -1,9 +1,9 @@
 #pragma once
-#include "ArduinoLinkPLC_Settings.h"
+#include "Core/ArduinoLinkPLC_Settings.h"
 namespace ArduinoLinkPLC
 {
     // Events
-    typedef void (*EventCallback)(const char* &msg);
+    typedef void (*EventCallback)(const char *&msg);
 #define MAX_EVENT_LISTENERS 4
     // Classes
     class EventString
@@ -25,7 +25,7 @@ namespace ArduinoLinkPLC
         long TimeStamp;
         const char *Type;
         const char *DataJSON;
-        Packet(const char *ReceiverID, const char *type, char *dataJSON)
+        Packet(const char *type,const char *dataJSON, const char *ReceiverID)
         {
             SenderID = deviceSenderID;
             ReceiverID = ReceiverID;

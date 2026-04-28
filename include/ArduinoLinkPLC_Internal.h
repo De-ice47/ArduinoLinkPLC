@@ -1,6 +1,7 @@
 #pragma once
 #include "ArduinoLinkPLC.h"
 
+// Things that are not exposed outside the library
 namespace ArduinoLinkPLC
 {
     // Variables

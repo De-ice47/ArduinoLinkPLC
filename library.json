@@ -1,7 +1,7 @@
 {
   "name": "ArduinoLinkPLC",
-  "version": "1.0.0",
-  "description": "Lightweight WiFi communication bridge for Arduino devices to interface with Unity applications.",
+  "version": "0.0.1-alpha",
+  "description": "Lightweight WiFi communication bridge for Arduino devices to interface with UDP connections",
   "keywords": [
     "wifi",
     "network",

@@ -1,11 +1,10 @@
 {
   "name": "VeloxityLink",
   "version": "0.2.0",
-  "description": "Lightweight WiFi communication bridge for Arduino devices to interface with UDP connections",
+  "description": "Lightweight WiFi communication bridge for Arduino devices to interface with UDP connections.",
   "keywords": [
     "wifi",
     "network",
-    "unity",
     "udp",
     "communication"
   ],

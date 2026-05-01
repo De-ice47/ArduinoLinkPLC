@@ -1,7 +1,7 @@
 # ArduinoLinkPLC
 [![PlatformIO Registry](https://badges.registry.platformio.org/packages/de-ice47/library/ArduinoLinkPLC.svg)](https://registry.platformio.org/libraries/de-ice47/ArduinoLinkPLC)
 
-Lightweight WiFi communication bridge for Arduino devices to interface with UDP ports on other devices.
+Lightweight WiFi communication bridge for Arduino devices to interface with UDP ports.
 ____
 __Features__
 * Packet Send/Receive

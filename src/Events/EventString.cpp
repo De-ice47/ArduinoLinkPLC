@@ -1,6 +1,5 @@
 #pragma once
-#include "ArduinoLinkPLC.h"
-#include "ArduinoLinkPLC_Internal.h"
+#include "internal/EventString.h"
 namespace ArduinoLinkPLC
 {
     // Subscribe a listener

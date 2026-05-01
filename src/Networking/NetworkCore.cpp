@@ -1,19 +1,22 @@
-#include "ArduinoLinkPLC_Internal.h"
+#include "internal/ArduinoLinkPLC_Internal.h"
 namespace ArduinoLinkPLC
 {
-  // Runtime
+  //
   WiFiUDP udp;
+  bool networkActive = false;
+  // local
   bool connectionEstablished = false;
   int connectionAttempts = 0;
   //
-  void setup_wifi()
+  void start_network()
   {
-    digitalWrite(LED_BUILTIN, LOW);
-    WiFi.config(localIP, gateway);
+    Serial.begin(9600);
+    statusLight(false);
+    WiFi.config(localIP, gateway, IPAddress(255, 255, 255, 0));
     WiFi.begin(masterComputerSSID, masterComputerSSIDPassword);
     if (showSerialOutput)
     {
-      Serial.print("Connecting to: ");
+      Serial.print("Connecting to gateway: ");
       Serial.print(gateway);
       Serial.print(", on network: ");
       Serial.print(masterComputerSSID);
@@ -24,24 +27,24 @@ namespace ArduinoLinkPLC
     {
       wifi_checkStatus();
       delay(250);
-      digitalWrite(LED_BUILTIN, HIGH);
+      statusLight(true);
       if (showSerialOutput)
         Serial.print(".");
       delay(250);
-      digitalWrite(LED_BUILTIN, LOW);
+      statusLight(false);
     }
 
     if (udp.begin(masterComputerPort) == 1)
     {
       if (showSerialOutput)
         Serial.println("Socket Openned: Connected!");
-      digitalWrite(LED_BUILTIN, HIGH);
+      statusLight(true);
     }
     else
     {
       if (showSerialOutput)
         Serial.println("Socket Error");
-      digitalWrite(LED_BUILTIN, LOW);
+      statusLight(false);
     }
     while (WiFi.status() != WL_CONNECTED)
       delay(250);
@@ -50,5 +53,13 @@ namespace ArduinoLinkPLC
       Serial.print("Local IP: ");
       Serial.println(WiFi.localIP());
     }
+  }
+  void stop_network()
+  {
+    udp.stop();
+    WiFi.disconnect();
+    if (showSerialOutput)
+      Serial.println("Network Stopped");
+    statusLight(false);
   }
 }

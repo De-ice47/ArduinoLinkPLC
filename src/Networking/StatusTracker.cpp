@@ -1,5 +1,4 @@
-#include "ArduinoLinkPLC.h"
-#include "ArduinoLinkPLC_Internal.h"
+#include "internal/ArduinoLinkPLC_Internal.h"
 namespace ArduinoLinkPLC
 {
     int lastStatus = -1;
@@ -17,7 +16,7 @@ namespace ArduinoLinkPLC
                     Serial.print("[Wifi Status] Idling/Connecting: ");
                     Serial.println(currentStatus);
                 }
-                digitalWrite(13, LOW);
+                statusLight(false);
                 break;
             case WL_NO_SSID_AVAIL:
                 if (showSerialOutput)
@@ -25,7 +24,7 @@ namespace ArduinoLinkPLC
                     Serial.print("[Wifi Status] No SSID Avaliable: ");
                     Serial.println(currentStatus);
                 }
-                digitalWrite(13, LOW);
+                statusLight(false);
                 break;
             case WL_CONNECTED:
                 if (showSerialOutput)
@@ -33,7 +32,7 @@ namespace ArduinoLinkPLC
                     Serial.print("[Wifi Status] Connected: ");
                     Serial.println(currentStatus);
                 }
-                digitalWrite(13, HIGH);
+                statusLight(true);
                 break;
             case WL_CONNECT_FAILED:
                 if (showSerialOutput)
@@ -41,7 +40,7 @@ namespace ArduinoLinkPLC
                     Serial.print("[Wifi Status] Connection Failed: ");
                     Serial.println(currentStatus);
                 }
-                digitalWrite(13, LOW);
+                statusLight(false);
                 break;
             case WL_CONNECTION_LOST:
                 if (showSerialOutput)
@@ -49,7 +48,7 @@ namespace ArduinoLinkPLC
                     Serial.print("[Wifi Status] Connection Lost: ");
                     Serial.println(currentStatus);
                 }
-                digitalWrite(13, LOW);
+                statusLight(false);
                 break;
             case WL_DISCONNECTED:
                 if (showSerialOutput)
@@ -57,7 +56,7 @@ namespace ArduinoLinkPLC
                     Serial.print("[Wifi Status] Disconnected: ");
                     Serial.println(currentStatus);
                 }
-                digitalWrite(13, LOW);
+                statusLight(false);
                 break;
             case WL_NO_MODULE:
                 if (showSerialOutput)
@@ -65,7 +64,7 @@ namespace ArduinoLinkPLC
                     Serial.print("[Wifi Status] No Wifi Module Detected: ");
                     Serial.println(currentStatus);
                 }
-                digitalWrite(13, LOW);
+                statusLight(false);
                 break;
             default:
                 if (showSerialOutput)
@@ -73,7 +72,7 @@ namespace ArduinoLinkPLC
                     Serial.print("[Wifi Status] Unknown Status: ");
                     Serial.println(currentStatus);
                 }
-                digitalWrite(13, LOW);
+                statusLight(false);
             }
         }
     }

@@ -17,18 +17,37 @@ namespace ArduinoLinkPLC
     IPAddress gateway(0,0,0,0);                   // Master device IP
     char *masterComputerSSID;      // Master device network name
     char *masterComputerSSIDPassword; // Master device network password
-    int masterComputerPort = 0;                  // Master device port
+    int masterComputerPort = 49800;                  // Master device port
     bool showSerialOutput = false;
+    bool checkWiFiStatus = false;
+    bool useInternalLED = false;
 
     void displaySerialOutput(bool running){
         showSerialOutput = running;
     }
-    void config(char* deviceID, IPAddress local_IP, IPAddress gatewayIP, char* SSID, char* SSID_Password, int port = 49800){
-        DeviceID = deviceID;
+    void checkWifiStatus(bool checking){
+        checkWiFiStatus = checking;
+    }
+    void AllowInternalLEDUse(bool useLED){
+        useInternalLED = useLED;
+    }
+    void setLocalIP(IPAddress local_IP){
         localIP = local_IP;
+    }
+    void setDeviceID(char* deviceID){
+        DeviceID = deviceID;
+    }
+    void setGatewayIP(IPAddress gatewayIP){
         gateway = gatewayIP;
+    }
+    void setNetworkSSID(char* SSID){
+        masterComputerSSID = SSID;
+    }
+    void setNetworkSSID(char* SSID, char* SSID_Password){
         masterComputerSSID = SSID;
         masterComputerSSIDPassword = SSID_Password;
+    }
+    void setPort(int port){
         masterComputerPort = port;
     }
 }

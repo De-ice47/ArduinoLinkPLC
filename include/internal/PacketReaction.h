@@ -1,5 +1,5 @@
 #pragma once
-#include "ArduinoLinkPLC_Internal.h"
+#include "internal/ArduinoLinkPLC_Internal.h"
 
 namespace ArduinoLinkPLC{
     void React(Packet packet);

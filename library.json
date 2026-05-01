@@ -31,6 +31,14 @@
   ],
   "build": {
     "includeDir": "include",
-    "srcDir": "src"
-  }
+    "srcDir": "src",
+    "srcFilter": [
+      "+<*.cpp>",
+      "+<*.c>",
+      "-<src/dummyRuntime.cpp>"
+    ]
+  },
+  "dependencies": [
+    {"name": "ArduinoJson", "version": "^6.21.0"}
+  ]
 }

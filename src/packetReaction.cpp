@@ -1,4 +1,4 @@
-#include "ArduinoLinkPLC_Internal.h"
+#include "internal/ArduinoLinkPLC_Internal.h"
 
 namespace ArduinoLinkPLC
 {
@@ -13,7 +13,7 @@ namespace ArduinoLinkPLC
   }
   void Ping()
   {
-    const char *dataJSON = localIP.toString().c_str();
-    ArduinoLinkPLC::send_packet("PING", dataJSON);
+    String ipStr = localIP.toString();
+    ArduinoLinkPLC::send_packet("PING", ipStr.c_str());
   }
 }

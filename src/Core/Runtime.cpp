@@ -1,12 +1,7 @@
-#include "ArduinoLinkPLC_Internal.h"
+#include "Internal/ArduinoLinkPLC_Internal.h"
 namespace ArduinoLinkPLC
 {
-    // Main Runtime Functions
-    void setup_library()
-    {
-        setup_wifi();
-    }
-    void loop_library()
+    void run_network()
     {
         receive_packets();
         wifi_checkStatus();

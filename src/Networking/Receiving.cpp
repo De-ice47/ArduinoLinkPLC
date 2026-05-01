@@ -1,4 +1,4 @@
-#include "ArduinoLinkPLC_Internal.h"
+#include "internal/ArduinoLinkPLC_Internal.h"
 namespace ArduinoLinkPLC
 {
   char incomingPacket[255];
@@ -20,7 +20,7 @@ namespace ArduinoLinkPLC
 
       Packet packet = ArduinoLinkPLC::deconstructPacket(msg);
       bool globalBroadcast = strcmp(packet.ReceiverID, "") == 0;
-      if (globalBroadcast) // This broadcast is a global one for this device
+      if (globalBroadcast) // This broadcast is a global one for all devices
       {
         if(showSerialOutput) Serial.println("[Wifi-R] ("+String(packet.SenderID)+") => (Global Broadcast) <"+ String(packet.Type) +"> : " + String(packet.DataJSON));
         ArduinoLinkPLC::React(packet);
@@ -32,7 +32,7 @@ namespace ArduinoLinkPLC
         else
         {
           if(showSerialOutput) Serial.println("[Wifi-R] ("+String(packet.SenderID)+") => (" + String(packet.ReceiverID) + ") ("+ String(packet.Type) +")" + String(packet.DataJSON));
-          ArduinoLinkPLC::React(packet);
+          ArduinoLinkPLC::React(packet); // This broadcast is for this device only
         }
       }
     }

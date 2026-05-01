@@ -16,9 +16,9 @@ namespace ArduinoLinkPLC
       }
 
       const char *msg = incomingPacket;
-      onPacketReceived.invoke(msg);
-
+      
       Packet packet = ArduinoLinkPLC::deconstructPacket(msg);
+      onPacketReceived.invoke(packet);
           
       if (showSerialOutput)
         Serial.println("[Wifi-R] (" + String(packet.SenderID) + ") <" + String(packet.Type) + ">" + String(packet.DataJSON));

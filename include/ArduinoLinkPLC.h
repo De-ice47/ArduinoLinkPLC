@@ -1,6 +1,7 @@
 #pragma once
 #include "Core/ArduinoLinkPLC_Settings.h"
 #include "internal/EventString.h"
+#include "internal/Packet.h"
 namespace ArduinoLinkPLC
 {
     // Sending

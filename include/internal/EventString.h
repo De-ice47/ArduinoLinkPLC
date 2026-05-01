@@ -1,9 +1,9 @@
 #pragma once
-#include "Core/ArduinoLinkPLC_Settings.h"
+#include "Packet.h"
 namespace ArduinoLinkPLC
 {
     // Events
-    typedef void (*EventCallback)(const char *&msg);
+    typedef void (*EventCallback)(const Packet &msg);
 #define MAX_EVENT_LISTENERS 4
     // Classes
     class EventString
@@ -14,7 +14,7 @@ namespace ArduinoLinkPLC
 
     public:
         void subscribe(EventCallback cb);
-        void invoke(const char *&msg);
+        void invoke(const Packet &msg);
         void clear_all_listeners();
     };
 }

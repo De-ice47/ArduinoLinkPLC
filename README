@@ -9,7 +9,7 @@ __Features__
 __Getting Started__
 * Setup
 
-The setup function is where networks should be configured to the desired values before the network is started
+The setup function is where networks should be configured to the desired values before the network is started.
 ```
 #include <Arduino.h>
 #include "ArduinoLinkPLC.h"
@@ -32,22 +32,37 @@ void setup()
 ```
 * Starting the network
 
-Once everything is set as desired, start the network connection with this function
+Once everything is set as desired, start the network connection with this function.
 ```
 ArduinoLinkPLC::start_network();
 ```
 * Network Runtime
 
-When the network is running, the ```run_network();``` function will need to be ran continuously to allow the microcontroller's connection to keep functioning
+When the network is running, the ```run_network();``` function will need to be ran continuously to allow the microcontroller's connection to keep functioning.
 ```
 void loop()
 {
     ArduinoLinkPLC::run_network();
 }
 ```
+* Receiving Packets
+
+To receive packets transmitted to this device, use the ``` ArduinoLinkPLC::onPacketReceived.subscribe();``` in ```setup()``` and then input a function name into the argument to subscribe it to the event.
+```
+void packetReceivedFunction(const ArduinoLinkPLC::Packet &packet)
+{
+    // This function will be called whenever a packet is received
+    // You can add your own code here to handle the packet data as needed
+    Serial.println(packet.DataJSON);
+}
+void setup()
+{
+    ArduinoLinkPLC::onPacketReceived.subscribe(packetReceivedFunction);
+}
+```
 * Stopping the network
 
-When the network needs to be turned off, use this function
+When the network needs to be turned off, use this function.
 ```
 ArduinoLinkPLC::stop_network();
 ```

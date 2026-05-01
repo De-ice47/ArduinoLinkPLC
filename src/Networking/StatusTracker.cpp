@@ -1,5 +1,5 @@
-#include "internal/ArduinoLinkPLC_Internal.h"
-namespace ArduinoLinkPLC
+#include "internal/VeloxityLink_Internal.h"
+namespace VeloxityLink
 {
     int lastStatus = -1;
     void wifi_checkStatus()

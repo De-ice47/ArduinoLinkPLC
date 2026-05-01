@@ -1,8 +1,8 @@
 #pragma once
-#include "Core/ArduinoLinkPLC_Settings.h"
+#include "Core/VeloxityLink_Settings.h"
 #include "internal/EventString.h"
 #include "internal/Packet.h"
-namespace ArduinoLinkPLC
+namespace VeloxityLink
 {
     // Sending
     /**
@@ -23,7 +23,7 @@ namespace ArduinoLinkPLC
     /**
      * @brief An event that triggers whenever a packet is received
      */
-    extern ArduinoLinkPLC::EventString onPacketReceived;
+    extern VeloxityLink::EventString onPacketReceived;
     /**
      * @brief Starts the mircocontroller's connection to the network choosen.
      */

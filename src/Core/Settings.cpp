@@ -1,6 +1,6 @@
-#include "Core/ArduinoLinkPLC_Settings.h"
+#include "Core/VeloxityLink_Settings.h"
 
-namespace ArduinoLinkPLC
+namespace VeloxityLink
 {
     // Device Settings
     // const char *DeviceID = "ArdUnoR4";

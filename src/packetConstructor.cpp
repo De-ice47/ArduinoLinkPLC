@@ -1,6 +1,6 @@
-#include "internal/ArduinoLinkPLC_Internal.h"
+#include "internal/VeloxityLink_Internal.h"
 
-namespace ArduinoLinkPLC
+namespace VeloxityLink
 {
     Packet constructPacket(const char *type, const char *dataJSON)
     {

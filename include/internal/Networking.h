@@ -1,6 +1,6 @@
 #pragma once
-#include "internal/ArduinoLinkPLC_Internal.h"
-namespace ArduinoLinkPLC
+#include "internal/VeloxityLink_Internal.h"
+namespace VeloxityLink
 {
     extern WiFiUDP udp;
     extern bool networkActive;

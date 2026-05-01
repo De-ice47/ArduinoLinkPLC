@@ -1,6 +1,6 @@
-#include "internal/ArduinoLinkPLC_Internal.h"
+#include "internal/VeloxityLink_Internal.h"
 
-namespace ArduinoLinkPLC
+namespace VeloxityLink
 {
   void React(Packet packet)
   {
@@ -14,6 +14,6 @@ namespace ArduinoLinkPLC
   void Ping(Packet packet)
   {
     String ipStr = localIP.toString();
-    ArduinoLinkPLC::send_packet("PING", ipStr.c_str(),IPAddress(gateway[0], gateway[1], gateway[2], 255), packet.TimeStamp);
+    VeloxityLink::send_packet("PING", ipStr.c_str(),IPAddress(gateway[0], gateway[1], gateway[2], 255), packet.TimeStamp);
   }
 }

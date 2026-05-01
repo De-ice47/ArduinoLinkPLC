@@ -1,7 +1,7 @@
 #pragma once
-#include "Core/ArduinoLinkPLC_Settings.h"
+#include "Core/VeloxityLink_Settings.h"
 
-namespace ArduinoLinkPLC
+namespace VeloxityLink
 {
     class Packet
     {

@@ -1,6 +1,6 @@
 #pragma once
 #include "internal/EventString.h"
-namespace ArduinoLinkPLC
+namespace VeloxityLink
 {
     // Subscribe a listener
     void EventString::subscribe(EventCallback cb)

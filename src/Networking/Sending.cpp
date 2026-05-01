@@ -1,5 +1,5 @@
-#include "internal/ArduinoLinkPLC_Internal.h"
-namespace ArduinoLinkPLC
+#include "internal/VeloxityLink_Internal.h"
+namespace VeloxityLink
 {
     void send_packet(const char *type, const char *dataJSON)
     {
@@ -12,7 +12,7 @@ namespace ArduinoLinkPLC
     }
     void send_packet(const char *type, const char *dataJSON, IPAddress targetIP, long timeStamp)
     {
-        Packet packet = ArduinoLinkPLC::constructPacket(type, dataJSON);
+        Packet packet = VeloxityLink::constructPacket(type, dataJSON);
         StaticJsonDocument<256> doc;
         doc["SendID"] = packet.SenderID;
         doc["type"] = packet.Type;

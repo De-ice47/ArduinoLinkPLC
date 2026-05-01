@@ -1,8 +1,8 @@
-#include "internal/ArduinoLinkPLC_Internal.h"
-namespace ArduinoLinkPLC
+#include "internal/VeloxityLink_Internal.h"
+namespace VeloxityLink
 {
   char incomingPacket[255];
-  ArduinoLinkPLC::EventString onPacketReceived;
+  VeloxityLink::EventString onPacketReceived;
 
   void receive_packets()
   {
@@ -17,12 +17,12 @@ namespace ArduinoLinkPLC
 
       const char *msg = incomingPacket;
       
-      Packet packet = ArduinoLinkPLC::deconstructPacket(msg);
+      Packet packet = VeloxityLink::deconstructPacket(msg);
       onPacketReceived.invoke(packet);
           
       if (showSerialOutput)
         Serial.println("[Wifi-R] (" + String(packet.SenderID) + ") <" + String(packet.Type) + ">" + String(packet.DataJSON));
-      ArduinoLinkPLC::React(packet); // This broadcast is for this device only
+      VeloxityLink::React(packet); // This broadcast is for this device only
     }
   }
 }

@@ -1,5 +1,5 @@
-#include "Internal/ArduinoLinkPLC_Internal.h"
-namespace ArduinoLinkPLC
+#include "Internal/VeloxityLink_Internal.h"
+namespace VeloxityLink
 {
     void run_network()
     {

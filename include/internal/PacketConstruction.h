@@ -1,7 +1,7 @@
 #pragma once
-#include "internal/ArduinoLinkPLC_Internal.h"
+#include "internal/VeloxityLink_Internal.h"
 
-namespace ArduinoLinkPLC
+namespace VeloxityLink
 {
     // Construction functions
     Packet constructPacket(const char * type, const char * data);

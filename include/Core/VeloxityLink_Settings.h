@@ -1,6 +1,6 @@
 #pragma once
-#include "Core/ArduinoLinkPLC_Dependency.h"
-namespace ArduinoLinkPLC
+#include "Core/VeloxityLink_Dependency.h"
+namespace VeloxityLink
 {
     // Device ID
     extern char *DeviceID;

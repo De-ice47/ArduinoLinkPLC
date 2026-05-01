@@ -1,6 +1,6 @@
 #pragma once
 #include "Packet.h"
-namespace ArduinoLinkPLC
+namespace VeloxityLink
 {
     // Events
     typedef void (*EventCallback)(const Packet &msg);

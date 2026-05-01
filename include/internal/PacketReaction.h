@@ -3,5 +3,5 @@
 
 namespace ArduinoLinkPLC{
     void React(Packet packet);
-    void Ping();
+    void Ping(Packet packet);
 }

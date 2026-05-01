@@ -17,6 +17,7 @@ namespace ArduinoLinkPLC
      * @param targetIP The target device for this packet.
      */
     void send_packet(const char *type, const char *data, IPAddress targetIP);
+    void send_packet(const char *type, const char *dataJSON, IPAddress targetIP, long timeStamp);
     // Receiving
     /**
      * @brief An event that triggers whenever a packet is received

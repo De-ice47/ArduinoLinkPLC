@@ -2,16 +2,15 @@
 
 namespace ArduinoLinkPLC
 {
-    Packet constructPacket(const char *type, const char *dataJSON, const char *ReceiverID)
+    Packet constructPacket(const char *type, const char *dataJSON)
     {
-        Packet packet(type, dataJSON, ReceiverID);
+        Packet packet(type, dataJSON);
         packet.DataJSON = dataJSON;
-        packet.ReceiverID = ReceiverID;
         return packet;
     }
     Packet deconstructPacket(const char *packet)
     {
-        Packet result("", "", "");
+        Packet result("", "");
 
         StaticJsonDocument<256> doc;
         DeserializationError error = deserializeJson(doc, packet);
@@ -22,9 +21,8 @@ namespace ArduinoLinkPLC
         // Access field data from packet
 
         result.SenderID = doc["SendID"];
-        result.ReceiverID = doc["ReceiveID"];
         result.Type = doc["type"];
-        result.TimeStamp = doc["timeStamp"];
+        result.TimeStamp = doc["timestamp"];
         result.DataJSON = doc["data"];
 
         return result;

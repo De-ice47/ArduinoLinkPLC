@@ -8,21 +8,22 @@ namespace ArduinoLinkPLC
     }
     void send_packet(const char *type, const char *dataJSON, IPAddress targetIP)
     {
-        String target = targetIP.toString();
-        Packet packet = ArduinoLinkPLC::constructPacket(type, dataJSON, target.c_str());
+        send_packet(type, dataJSON, targetIP, 0);
+    }
+    void send_packet(const char *type, const char *dataJSON, IPAddress targetIP, long timeStamp)
+    {
+        Packet packet = ArduinoLinkPLC::constructPacket(type, dataJSON);
         StaticJsonDocument<256> doc;
         doc["SendID"] = packet.SenderID;
-        doc["ReceiveID"] = packet.ReceiverID;
         doc["type"] = packet.Type;
         doc["data"] = packet.DataJSON;
-        doc["timeStamp"] = packet.TimeStamp;
+        doc["timeStamp"] = timeStamp;
         String output;
         serializeJson(doc, output);
         udp.beginPacket(targetIP, masterComputerPort);
         udp.print(output);
         udp.endPacket();
         if (showSerialOutput)
-            Serial.println("[Wifi-S] (" + String(packet.SenderID) + ") => (" + String(packet.ReceiverID) + ") <" + String(packet.Type) + "> :" + String(packet.DataJSON));
+            Serial.println("[Wifi-S] (" + String(packet.SenderID) + ") => (" + targetIP.toString() + ") <" + String(packet.Type) + "> :" + String(packet.DataJSON));
     }
-
 }

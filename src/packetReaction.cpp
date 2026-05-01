@@ -8,12 +8,12 @@ namespace ArduinoLinkPLC
     // Packet Processing
     if (strcmp(packet.Type, "PING") == 0)
     {
-      Ping();
+      Ping(packet);
     }
   }
-  void Ping()
+  void Ping(Packet packet)
   {
     String ipStr = localIP.toString();
-    ArduinoLinkPLC::send_packet("PING", ipStr.c_str());
+    ArduinoLinkPLC::send_packet("PING", ipStr.c_str(),IPAddress(gateway[0], gateway[1], gateway[2], 255), packet.TimeStamp);
   }
 }

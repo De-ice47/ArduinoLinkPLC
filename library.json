@@ -1,6 +1,6 @@
 {
   "name": "VeloxityLink",
-  "version": "0.2.0",
+  "version": "0.2.5",
   "description": "Lightweight WiFi communication bridge for Arduino devices to interface with UDP connections.",
   "keywords": [
     "wifi",
@@ -28,16 +28,10 @@
     "espressif8266",
     "espressif32"
   ],
-  "build": {
-    "includeDir": "include",
-    "srcDir": "src",
-    "srcFilter": [
-      "+<*.cpp>",
-      "+<*.c>",
-      "-<src/dummyRuntime.cpp>"
-    ]
+  "export": {
+    "include": ["src", "LICENSE.txt", "VeloxityLink.h"]
   },
   "dependencies": [
-    {"name": "ArduinoJson", "version": "^6.21.0"}
+    {"name": "ArduinoJson", "version": "^7.2.2"}
   ]
 }

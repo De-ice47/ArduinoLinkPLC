@@ -1,5 +1,5 @@
 # VeloxityLink
-[![PlatformIO Registry](https://badges.registry.platformio.org/packages/de-ice47/library/ArduinoLinkPLC.svg)](https://registry.platformio.org/libraries/de-ice47/VeloxityLink)
+[![PlatformIO Registry](https://badges.registry.platformio.org/packages/de-ice47/library/VeloxityLink.svg)](https://registry.platformio.org/libraries/de-ice47/VeloxityLink)
 
 Lightweight WiFi communication bridge for Arduino devices to interface with UDP ports.
 ____
